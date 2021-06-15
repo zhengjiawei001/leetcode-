@@ -29,7 +29,7 @@ class Solution:
 class Solution_0:
     def minSpeedOnTime(self, dist, hour: float) -> int:
 
-        if len(dist) - 1 > hour:
+        if len(dist) - 1 >= hour:
             return -1
 
         def check_seed(v):
