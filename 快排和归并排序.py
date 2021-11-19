@@ -39,6 +39,23 @@ def quick_sort1(data, p, r):
         quick_sort1(data, q, r)
 
 
+def quick_sort2(array, l, r):
+    def partition(array, l, r):
+        pivot_idx = random.randint(l, r - 1)
+        array[pivot_idx], data[r - 1] = data[r - 1], data[pivot_idx]
+        i = l
+        for j in range(l, r):
+            if array[j] <= array[r - 1]:
+                array[j], data[i] = data[i], data[j]
+                i += 1
+        return i - 1
+
+    if r - l > 1:
+        q = partition(array, l, r)
+        quick_sort2(array, l, q - 1)
+        quick_sort2(array, q + 1, r)
+
+
 def merge_sort(items, comp=lambda x, y: x <= y):
     """归并排序"""
     if len(items) < 2:
@@ -56,5 +73,15 @@ def merge(items1, items2, comp):
 
 if __name__ == '__main__':
     data = [11, 8, 3, 9, 7, 1, 2, 5]
+    r =  len(data)
+    p = 0
+    pivot_idx = random.randint(0, len(data) - 1)
+    data[pivot_idx], data[r - 1] = data[r - 1], data[pivot_idx]
+    i = p
+    for j in range(p, r):
+        if data[j] <= data[r - 1]:
+            data[j], data[i] = data[i], data[j]
+            i += 1
+        print(data)
     quick_sort1(data, 0, len(data))
     print(data)

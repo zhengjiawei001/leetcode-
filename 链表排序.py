@@ -52,8 +52,12 @@ for i in heads:
     head.next = node
     head = head.next
 
-head = dummy.next
+head= dummy.next
 
 while head:
     print(head.val)
     head = head.next
+
+
+
+
